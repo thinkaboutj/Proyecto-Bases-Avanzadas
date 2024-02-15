@@ -4,17 +4,27 @@
  */
 package interfazLogIn;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Jesus Gabriel
  */
 public class LogIn extends javax.swing.JPanel {
 
+    //Codigo para poner el FONDO DE EL LOG IN
     /**
      * Creates new form LogIn
      */
     public LogIn() {
-        initComponents();
+        initComponents(); 
+// Establecer el fondo del panel
+        ImageIcon imageIcon = new ImageIcon("src/main/Multimedia/Fondo_LogIn.jpg"); // Reemplaza con la ruta de tu imagen
+        jLabel1.setIcon(imageIcon);
+        jLabel1.setBounds(0, 0, imageIcon.getIconWidth(), imageIcon.getIconHeight());
+
+        // Asegurarse de que el fondo esté detrás de otros componentes
+        jPanel1.add(jLabel1, new Integer(Integer.MIN_VALUE));
     }
 
     /**
@@ -187,7 +197,7 @@ public class LogIn extends javax.swing.JPanel {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RetirarSC().setVisible(true);
+                new LogIn().setVisible(true);
             }
         });
     }

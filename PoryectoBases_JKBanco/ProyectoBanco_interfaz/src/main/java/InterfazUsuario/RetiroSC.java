@@ -144,7 +144,7 @@ public class RetiroSC extends javax.swing.JPanel {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RetirarSC().setVisible(true);
+                new RetiroSC().setVisible(true);
             }
         });
     }
