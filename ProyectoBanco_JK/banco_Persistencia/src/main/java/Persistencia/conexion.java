@@ -4,10 +4,19 @@
  */
 package Persistencia;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Jesus Gabriel
  */
 public class conexion {
+    
+    String url = "jdbc:mysql://localhost:3306 ";
+    String nombreBD = "Banco_Proyecto";
+    String usuario = "root";
+    String contra = "PHW#84#jeor";
+
+    Connection conexion = null;
     
 }
