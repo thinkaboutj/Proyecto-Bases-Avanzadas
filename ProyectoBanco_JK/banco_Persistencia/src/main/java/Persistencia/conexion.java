@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class conexion {
     
+    /**
+     * Aqui empezamos a declarar todo para realizar la conexion a la BD
+     */
     String url = "jdbc:mysql://localhost:3306 ";
     String nombreBD = "banco";
     String usuario = "root";
@@ -21,11 +24,18 @@ public class conexion {
 
     Connection conexion = null;
     
+    /*
+    Costructor vacio
+    */
     public conexion() {
     }
     
     
 
+    /**
+     * Metodo donde creamos la conexion a la BD
+     * @return nos regresa la conexion 
+     */
     public Connection crearConexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -42,6 +52,9 @@ public class conexion {
 
     }
 
+    /**
+     * Metodo donde cerramos la conexion a la BD
+     */
     public void cerrarConexion() {
         try {
             if (conexion != null && !conexion.isClosed() ) {
