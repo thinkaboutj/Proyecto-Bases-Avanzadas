@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Cliente {
     
-     private int id;
+    private int id;
     private Date fechaN;
     private int edad;
     private String nombre;
