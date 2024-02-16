@@ -4,13 +4,22 @@
 
 package com.mycompany.banco_persistencia;
 
+import Persistencia.conexion;
+
 /**
  *
  * @author Jesus Gabriel
  */
 public class Banco_Persistencia {
 
+    /*
+    AQUI PROBAREMOS SI SE HIZO LA CONEXION O NO NOMAS
+    */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+         conexion conexion = new conexion();
+        
+        conexion.crearConexion();
+        conexion.cerrarConexion();
+
     }
 }
