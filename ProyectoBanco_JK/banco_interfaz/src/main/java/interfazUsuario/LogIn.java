@@ -105,6 +105,7 @@ public class LogIn extends javax.swing.JFrame {
         Agrupador.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 290, 40));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
         Agrupador.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 150, 40));
 
@@ -118,6 +119,7 @@ public class LogIn extends javax.swing.JFrame {
         Agrupador.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 290, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cliente");
         Agrupador.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 40));
 
@@ -138,6 +140,7 @@ public class LogIn extends javax.swing.JFrame {
 
         btnIniciarSesion.setBackground(new java.awt.Color(204, 0, 51));
         btnIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("Iniciar Sesion");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
