@@ -29,7 +29,7 @@ public class Inicio extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         Agrupador3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        btnEditarCuenta = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,12 +52,12 @@ public class Inicio extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(246, 116, 82));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 0, 51));
-        jButton4.setText("Editar cuenta");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarCuenta.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditarCuenta.setForeground(new java.awt.Color(0, 0, 51));
+        btnEditarCuenta.setText("Editar cuenta");
+        btnEditarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnEditarCuentaActionPerformed(evt);
             }
         });
 
@@ -76,7 +76,7 @@ public class Inicio extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jButton4)
+                .addComponent(btnEditarCuenta)
                 .addContainerGap(522, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -88,7 +88,7 @@ public class Inicio extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton4)
+                .addComponent(btnEditarCuenta)
                 .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -277,12 +277,24 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnEditarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+         Perfil perfil = new Perfil();
+        
+        perfil.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnEditarCuentaActionPerformed
 
     private void brnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnDepositarActionPerformed
         // TODO add your handling code here:
+        
+        Deposito depositar = new Deposito();
+        
+        depositar.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_brnDepositarActionPerformed
 
     private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
@@ -367,11 +379,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel Agrupador3;
     private javax.swing.JButton brnDepositar;
     private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnEditarCuenta;
     private javax.swing.JButton btnGenerarRetiro;
     private javax.swing.JButton btnHistorial;
     private javax.swing.JButton btnTransferir;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

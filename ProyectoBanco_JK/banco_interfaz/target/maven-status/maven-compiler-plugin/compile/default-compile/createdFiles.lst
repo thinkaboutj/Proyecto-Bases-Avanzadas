@@ -1,9 +1,12 @@
+interfazConfirmacion\ConfirmacionRetiro$1.class
 interfazUsuario\Inicio$4.class
 interfazConfirmacion\ConfirmacionTransferencia$4.class
 interfazUsuario\LogIn$6.class
+interfazUsuario\Historial$4.class
+interfazUsuario\Deposito.class
 interfazUsuario\Perfil$3.class
-interfazConfirmacion\ConfirmacionSC$5.class
 interfazUsuario\LogIn$3.class
+interfazUsuario\Deposito$3.class
 interfazUsuario\RetiroSinCuenta$3.class
 interfazUsuario\Inicio$1.class
 interfazUsuario\Inicio$7.class
@@ -17,9 +20,12 @@ interfazUsuario\Registro$1.class
 interfazUsuario\Transferencia$5.class
 interfazUsuario\GenerarRetiro$5.class
 interfazUsuario\Inicio$3.class
+interfazUsuario\Deposito$4.class
 interfazUsuario\RetiroSinCuenta$2.class
 com\mycompany\banco_interfaz\Banco_interfaz.class
+interfazConfirmacion\ConfirmacionRetiro.class
 interfazConfirmacion\ConfirmacionSC$4.class
+interfazConfirmacion\ConfirmacionRetiro$2.class
 interfazUsuario\Historial$3.class
 interfazUsuario\Transferencia$2.class
 interfazConfirmacion\ConfirmacionSC$1.class
@@ -35,6 +41,7 @@ interfazUsuario\GenerarRetiro$4.class
 interfazUsuario\Inicio$2.class
 interfazUsuario\Registro$3.class
 interfazUsuario\Inicio$6.class
+interfazUsuario\Deposito$1.class
 interfazUsuario\Perfil$4.class
 interfazUsuario\Transferencia.class
 interfazUsuario\Transferencia$1.class
@@ -49,8 +56,10 @@ interfazUsuario\Inicio$5.class
 interfazUsuario\LogIn$2.class
 interfazUsuario\Transferencia$3.class
 interfazUsuario\Perfil$2.class
+interfazUsuario\Deposito$2.class
 interfazUsuario\GenerarRetiro$3.class
 interfazUsuario\Registro$2.class
 interfazUsuario\Historial$1.class
 interfazUsuario\LogIn$5.class
+interfazUsuario\Deposito$5.class
 interfazUsuario\RetiroSinCuenta$1.class

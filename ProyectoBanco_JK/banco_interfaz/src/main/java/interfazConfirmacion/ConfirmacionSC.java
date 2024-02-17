@@ -6,6 +6,7 @@ package interfazConfirmacion;
 
 import interfazUsuario.Inicio;
 import interfazUsuario.LogIn;
+import interfazUsuario.Perfil;
 
 /**
  *
@@ -31,7 +32,7 @@ public class ConfirmacionSC extends javax.swing.JFrame {
 
         Agrupador = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnEditarCuenta = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,12 +55,12 @@ public class ConfirmacionSC extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(246, 116, 82));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 51));
-        jButton1.setText("Editar cuenta");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarCuenta.setBackground(new java.awt.Color(255, 255, 255));
+        btnEditarCuenta.setForeground(new java.awt.Color(0, 0, 51));
+        btnEditarCuenta.setText("Editar cuenta");
+        btnEditarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEditarCuentaActionPerformed(evt);
             }
         });
 
@@ -78,7 +79,7 @@ public class ConfirmacionSC extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jButton1)
+                .addComponent(btnEditarCuenta)
                 .addContainerGap(522, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -90,7 +91,7 @@ public class ConfirmacionSC extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnEditarCuenta)
                 .addContainerGap(16, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -238,9 +239,15 @@ public class ConfirmacionSC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEditarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+         Perfil perfil = new Perfil();
+        
+        perfil.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_btnEditarCuentaActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
 
@@ -301,7 +308,7 @@ public class ConfirmacionSC extends javax.swing.JFrame {
     private javax.swing.JPanel Agrupador;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEditarCuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

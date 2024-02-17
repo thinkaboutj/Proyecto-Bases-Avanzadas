@@ -123,7 +123,7 @@ public class LogIn extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Iniciar Sesion");
+        jLabel3.setText("Bienvenido.");
         Agrupador.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 240, 60));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
