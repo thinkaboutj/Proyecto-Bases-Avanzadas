@@ -4,6 +4,7 @@
  */
 package interfazUsuario;
 
+import interfazConfirmacion.ConfirmacionRetiro;
 import interfazConfirmacion.ConfirmacionSC;
 
 /**
@@ -173,7 +174,7 @@ public class RetiroSinCuenta extends javax.swing.JFrame {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         
-        ConfirmacionSC confirmacion = new ConfirmacionSC();
+        ConfirmacionRetiro confirmacion = new ConfirmacionRetiro();
         
         confirmacion.setVisible(true);
         

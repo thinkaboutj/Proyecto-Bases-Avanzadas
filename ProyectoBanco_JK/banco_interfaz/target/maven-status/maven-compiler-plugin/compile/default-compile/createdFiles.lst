@@ -15,6 +15,7 @@ interfazUsuario\RetiroSinCuenta.class
 interfazConfirmacion\ConfirmacionSC$2.class
 interfazUsuario\Registro$1.class
 interfazUsuario\Transferencia$5.class
+interfazUsuario\GenerarRetiro$5.class
 interfazUsuario\Inicio$3.class
 interfazUsuario\RetiroSinCuenta$2.class
 com\mycompany\banco_interfaz\Banco_interfaz.class
@@ -30,6 +31,7 @@ interfazConfirmacion\ConfirmacionSC$3.class
 interfazConfirmacion\ConfirmacionSC.class
 interfazUsuario\Historial$2.class
 interfazUsuario\Perfil$1.class
+interfazUsuario\GenerarRetiro$4.class
 interfazUsuario\Inicio$2.class
 interfazUsuario\Registro$3.class
 interfazUsuario\Inicio$6.class
