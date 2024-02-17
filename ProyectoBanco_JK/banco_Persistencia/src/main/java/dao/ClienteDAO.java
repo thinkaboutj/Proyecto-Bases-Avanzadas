@@ -4,6 +4,7 @@
  */
 package dao;
 
+import Persistencia.conexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -13,7 +14,7 @@ import java.sql.SQLException;
  */
 public class ClienteDAO {
     
-    public void agregarMiClase(int id, String fechaN, int edad, String nombre, String apellidoP, String apellidoM, int id_direccion) {
+        public void agregarMiClase(int id, String fechaN, int edad, String nombre, String apellidoP, String apellidoM, int id_direccion) {
         try {
             String query = "INSERT INTO cliente(id, fechaN, edad, nombre, apellidoP, apellidoM, id_direccion) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conexion.prepareStatement(query);
@@ -30,5 +31,6 @@ public class ClienteDAO {
             System.out.println("Error al agregar registro: " + e.getMessage());
         }
     }
+
     
 }
