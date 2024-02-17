@@ -8,7 +8,9 @@ interfazUsuario\RetiroSinCuenta$3.class
 interfazUsuario\Inicio$1.class
 interfazUsuario\Inicio$7.class
 interfazConfirmacion\ConfirmacionTransferencia$1.class
+interfazUsuario\GenerarRetiro$2.class
 interfazUsuario\Registro.class
+interfazUsuario\GenerarRetiro.class
 interfazUsuario\RetiroSinCuenta.class
 interfazConfirmacion\ConfirmacionSC$2.class
 interfazUsuario\Registro$1.class
@@ -22,6 +24,7 @@ interfazUsuario\Transferencia$2.class
 interfazConfirmacion\ConfirmacionSC$1.class
 interfazConfirmacion\ConfirmacionTransferencia$2.class
 interfazUsuario\LogIn.class
+interfazUsuario\GenerarRetiro$1.class
 interfazUsuario\Perfil.class
 interfazConfirmacion\ConfirmacionSC$3.class
 interfazConfirmacion\ConfirmacionSC.class
@@ -44,6 +47,7 @@ interfazUsuario\Inicio$5.class
 interfazUsuario\LogIn$2.class
 interfazUsuario\Transferencia$3.class
 interfazUsuario\Perfil$2.class
+interfazUsuario\GenerarRetiro$3.class
 interfazUsuario\Registro$2.class
 interfazUsuario\Historial$1.class
 interfazUsuario\LogIn$5.class

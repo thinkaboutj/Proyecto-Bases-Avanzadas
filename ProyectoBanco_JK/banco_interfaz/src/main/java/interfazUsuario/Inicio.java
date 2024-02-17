@@ -298,11 +298,23 @@ public class Inicio extends javax.swing.JFrame {
     private void btnGenerarRetiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarRetiroActionPerformed
         // TODO add your handling code here:
         
+        GenerarRetiro retiro = new GenerarRetiro();
+        
+        retiro.setVisible(true);
+        
+        this.dispose();
+        
      
     }//GEN-LAST:event_btnGenerarRetiroActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
         // TODO add your handling code here:
+        
+        Historial historial = new Historial();
+        
+        historial.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
