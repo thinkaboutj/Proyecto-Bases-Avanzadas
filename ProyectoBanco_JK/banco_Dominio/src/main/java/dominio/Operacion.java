@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Jesus Gabriel
  */
-public class Operacion {
+public class Operacion implements iOperacion {
     
      private int id;
     private Date fecha;

@@ -7,21 +7,17 @@ package dominio;
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author Jesus Gabriel
- */
-public class Cuenta {
-    
-     private int id;
+public class Cuenta implements iCuenta {
+
+    private int id;
     private Date fecha;
     private int numC;
     private double saldo;
     private String usuario;
     private String contrasena;
-    private Cliente cliente; 
+    private iCliente cliente;
 
-    public Cuenta(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, Cliente cliente) {
+    public Cuenta(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, iCliente cliente) {
         this.id = id;
         this.fecha = fecha;
         this.numC = numC;
@@ -31,73 +27,79 @@ public class Cuenta {
         this.cliente = cliente;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Override
     public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
+    @Override
     public int getNumC() {
         return numC;
     }
 
-    public void setNumC(int numC) {
-        this.numC = numC;
-    }
-
+    @Override
     public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
+    @Override
     public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
+    @Override
     public String getContrasena() {
         return contrasena;
     }
 
+    @Override
+    public iCliente getCliente() {
+        return cliente;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    @Override
+    public void setNumC(int numC) {
+        this.numC = numC;
+    }
+
+    @Override
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    @Override
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    @Override
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
+    @Override
+    public void setCliente(iCliente cliente) {
         this.cliente = cliente;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 17 * hash + this.id;
-        hash = 17 * hash + Objects.hashCode(this.fecha);
-        hash = 17 * hash + this.numC;
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.saldo) ^ (Double.doubleToLongBits(this.saldo) >>> 32));
-        hash = 17 * hash + Objects.hashCode(this.usuario);
-        hash = 17 * hash + Objects.hashCode(this.contrasena);
-        hash = 17 * hash + Objects.hashCode(this.cliente);
-        return hash;
+        return Objects.hash(id, fecha, numC, saldo, usuario, contrasena, cliente);
     }
 
     @Override
@@ -105,34 +107,16 @@ public class Cuenta {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cuenta other = (Cuenta) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (this.numC != other.numC) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.saldo) != Double.doubleToLongBits(other.saldo)) {
-            return false;
-        }
-        if (!Objects.equals(this.usuario, other.usuario)) {
-            return false;
-        }
-        if (!Objects.equals(this.contrasena, other.contrasena)) {
-            return false;
-        }
-        if (!Objects.equals(this.fecha, other.fecha)) {
-            return false;
-        }
-        return Objects.equals(this.cliente, other.cliente);
+        Cuenta other = (Cuenta) obj;
+        return id == other.id
+                && numC == other.numC
+                && Double.compare(other.saldo, saldo) == 0
+                && Objects.equals(fecha, other.fecha)
+                && Objects.equals(usuario, other.usuario)
+                && Objects.equals(contrasena, other.contrasena)
+                && Objects.equals(cliente, other.cliente);
     }
-
-    
-    
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Jesus Gabriel
  */
-public class Cliente {
+public class Cliente implements iCliente {
     
     private int id;
     private Date fechaN;
