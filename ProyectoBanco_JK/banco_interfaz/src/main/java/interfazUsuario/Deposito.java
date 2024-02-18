@@ -119,7 +119,7 @@ public class Deposito extends javax.swing.JFrame {
 
         btnEditarCuenta.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarCuenta.setForeground(new java.awt.Color(0, 0, 51));
-        btnEditarCuenta.setText("Editar cuenta");
+        btnEditarCuenta.setText("Ver Perfil");
         btnEditarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarCuentaActionPerformed(evt);
@@ -142,7 +142,7 @@ public class Deposito extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(btnEditarCuenta)
-                .addContainerGap(522, Short.MAX_VALUE))
+                .addContainerGap(544, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                     .addContainerGap(531, Short.MAX_VALUE)

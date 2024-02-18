@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Jesus Gabriel
  */
-public class conexion {
+public class conexion implements iConexion  {
     
     /**
      * Aqui empezamos a declarar todo para realizar la conexion a la BD
