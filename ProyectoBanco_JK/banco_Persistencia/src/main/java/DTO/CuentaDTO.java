@@ -4,6 +4,7 @@
  */
 package DTO;
 
+import dominio.Cliente;
 import dominio.iCliente;
 import java.util.Date;
 
@@ -19,8 +20,9 @@ public class CuentaDTO {
     private double saldo;
     private String usuario;
     private String contrasena;
+    private Cliente cliente;
 
-    public CuentaDTO(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, iCliente cliente) {
+    public CuentaDTO(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, Cliente cliente) {
         this.id = id;
         this.fecha = fecha;
         this.numC = numC;
@@ -51,6 +53,9 @@ public class CuentaDTO {
     }
 
     public void setNumC(int numC) {
+        if (numC < 0) {
+            throw new IllegalArgumentException("El numC no puede ser un número negativo.");
+        }
         this.numC = numC;
     }
 
@@ -59,6 +64,9 @@ public class CuentaDTO {
     }
 
     public void setSaldo(double saldo) {
+        if (saldo < 0) {
+            throw new IllegalArgumentException("El saldo no puede ser un número negativo.");
+        }
         this.saldo = saldo;
     }
 
@@ -75,6 +83,15 @@ public class CuentaDTO {
     }
 
     public void setContrasena(String contrasena) {
+        if (contrasena == null || contrasena.trim().isEmpty()) {
+            throw new IllegalArgumentException("La contraseña no puede ser nula o vacía.");
+        }
+
+        // Validación adicional: al menos 8 caracteres
+        if (contrasena.length() < 8) {
+            throw new IllegalArgumentException("La contraseña debe tener al menos 8 caracteres.");
+        }
+
         this.contrasena = contrasena;
     }
 
@@ -82,10 +99,11 @@ public class CuentaDTO {
         return cliente;
     }
 
-    public void setCliente(iCliente cliente) {
+    public void setCliente(Cliente cliente) {
+        if (cliente == null) {
+            throw new IllegalArgumentException("El cliente no puede ser nulo.");
+        }
         this.cliente = cliente;
     }
-    private iCliente cliente;
 
 }
-

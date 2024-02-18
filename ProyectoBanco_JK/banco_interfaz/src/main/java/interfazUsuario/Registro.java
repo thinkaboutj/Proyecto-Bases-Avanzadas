@@ -4,6 +4,13 @@
  */
 package interfazUsuario;
 
+import Control.ClienteControl;
+import dominio.Cliente;
+import dominio.Direccion;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Jesus Gabriel
@@ -16,6 +23,8 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -282,21 +291,21 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        
+
         LogIn login = new LogIn();
-        
+
         login.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        
-           LogIn login = new LogIn();
-        
+
+        LogIn login = new LogIn();
+
         login.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

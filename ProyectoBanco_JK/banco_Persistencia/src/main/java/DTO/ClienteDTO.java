@@ -11,8 +11,8 @@ import java.util.Date;
  * @author Jesus Gabriel
  */
 public class ClienteDTO {
-    
-     private int id;
+
+    private int id;
     private Date fechaN;
     private int edad;
     private String nombre;
@@ -32,14 +32,6 @@ public class ClienteDTO {
     }
 
     // Getters y Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Date getFechaN() {
         return fechaN;
     }
@@ -53,6 +45,9 @@ public class ClienteDTO {
     }
 
     public void setEdad(int edad) {
+        if (edad < 0) {
+            throw new IllegalArgumentException("La edad no puede ser un número negativo.");
+        }
         this.edad = edad;
     }
 
@@ -61,6 +56,10 @@ public class ClienteDTO {
     }
 
     public void setNombre(String nombre) {
+        // Validación de nombre
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -69,6 +68,10 @@ public class ClienteDTO {
     }
 
     public void setApellidoP(String apellidoP) {
+        // Validación de apellidoP 
+        if (apellidoP == null || apellidoP.trim().isEmpty()) {
+            throw new IllegalArgumentException("El apellidoP no puede ser nulo o vacío.");
+        }
         this.apellidoP = apellidoP;
     }
 
@@ -77,6 +80,10 @@ public class ClienteDTO {
     }
 
     public void setApellidoM(String apellidoM) {
+        // Validación de apellidoM 
+        if (apellidoM == null || apellidoM.trim().isEmpty()) {
+            throw new IllegalArgumentException("El apellidoM no puede ser nulo o vacío.");
+        }
         this.apellidoM = apellidoM;
     }
 
@@ -85,10 +92,11 @@ public class ClienteDTO {
     }
 
     public void setIdDireccion(int idDireccion) {
+        // Validación de idDireccion 
+        if (idDireccion < 0) {
+            throw new IllegalArgumentException("El idDireccion no puede ser un número negativo.");
+        }
         this.idDireccion = idDireccion;
     }
 
-    
-    
-    
 }

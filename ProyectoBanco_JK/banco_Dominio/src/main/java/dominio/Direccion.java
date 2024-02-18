@@ -26,6 +26,12 @@ public class Direccion implements iDireccion {
         this.colonia = colonia;
     }
 
+    public Direccion(String calle, int numero, String colonia) {
+        this.calle = calle;
+        this.numero = numero;
+        this.colonia = colonia;
+    }
+
     public int getId() {
         return id;
     }

@@ -23,6 +23,12 @@ public class DireccionDTO {
         this.codigoP = codigoP;
         this.colonia = colonia;
     }
+    
+    public DireccionDTO(String calle, int numero, String colonia) {
+        this.calle = calle;
+        this.numero = numero;
+        this.colonia = colonia;
+    }
 
     public int getId() {
         return id;

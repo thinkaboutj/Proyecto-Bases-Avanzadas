@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Random;
 import dao.DireccionDAO;
+import java.util.Calendar;
 
 /**
  *
@@ -36,6 +37,24 @@ public class ClienteDAO {
         this.secureRandom = new SecureRandom();
     }
 
+    public boolean login(String usuario, String contrasena) {
+        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE nombre = ? AND contrasena = ?";
+        try (PreparedStatement statement = conexionCliente.crearConexion().prepareStatement(query)) {
+            statement.setString(1, usuario);
+            statement.setString(2, contrasena);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt("count");
+                    return count > 0;  // Si count es mayor a 0, el usuario y la contraseña son válidos
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Manejo básico de excepciones (puedes mejorar esto según tus necesidades)
+        }
+        return false;  // Si hay alguna excepción, asumimos que el inicio de sesión falló
+    }
+
     public void guardarCliente(Cliente nuevoCliente, String contrasena, Direccion direccion) {
         try (Connection conexion = conexionCliente.crearConexion()) {
             // Realizar operaciones de persistencia con la conexión obtenida
@@ -49,6 +68,7 @@ public class ClienteDAO {
             direccionDAO.guardarDireccion(direccion);
             nuevoCliente.setIdDireccion(direccion.getId());
             guardarClienteEnBD(nuevoCliente);
+            
 
             Cuenta nuevaCuenta = cuentaDAO.crearCuentaAutomatica(nuevoCliente, contrasena);
             cuentaDAO.guardarCuenta(nuevaCuenta);
@@ -87,4 +107,21 @@ public class ClienteDAO {
             }
         }
     }
+    
+    public int calcularEdad(Date fechaNacimiento) {
+        Calendar fechaNacimientoCal = Calendar.getInstance();
+        fechaNacimientoCal.setTime(fechaNacimiento);
+
+        Calendar hoy = Calendar.getInstance();
+
+        int edad = hoy.get(Calendar.YEAR) - fechaNacimientoCal.get(Calendar.YEAR);
+
+        // Ajustar la edad si aún no ha cumplido años en el año actual
+        if (hoy.get(Calendar.DAY_OF_YEAR) < fechaNacimientoCal.get(Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+
+        return edad;
+    }
+
 }
