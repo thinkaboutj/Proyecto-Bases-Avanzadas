@@ -10,12 +10,10 @@ import java.util.Date;
  *
  * @author Jesus Gabriel
  */
-public class Transferencia extends Operacion {
+public class Transferencia  {
     private int cuentaD;
 
-    public Transferencia(int id, Date fecha, double monto) {
-        super(id, fecha, monto);
-        
+    public Transferencia(int id, Date fecha, double monto) {        
         this.cuentaD = cuentaD;
     }
 

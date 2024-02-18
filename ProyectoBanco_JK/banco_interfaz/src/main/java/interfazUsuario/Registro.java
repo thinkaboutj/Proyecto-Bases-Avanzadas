@@ -4,9 +4,6 @@
  */
 package interfazUsuario;
 
-import Control.ClienteControl;
-import dominio.Cliente;
-import dominio.Direccion;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

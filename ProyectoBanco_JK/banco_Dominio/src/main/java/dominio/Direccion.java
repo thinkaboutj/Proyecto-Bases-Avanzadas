@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author Jesus Gabriel
  */
-public class Direccion implements iDireccion {
+public class Direccion  {
     
     private int id;
     private String calle;

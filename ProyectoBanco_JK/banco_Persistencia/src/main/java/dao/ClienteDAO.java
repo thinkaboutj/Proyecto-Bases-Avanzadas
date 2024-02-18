@@ -4,10 +4,15 @@
  */
 package dao;
 
+import DTO.ClienteDTO;
+import DTO.CuentaDTO;
+import DTO.DireccionDTO;
+import DTO.RetiroDTO;
+import DTO.TransferenciaDTO;
+import Exception.PersistenciaExcepcion;
 import Persistencia.conexion;
-import dominio.Cliente;
-import dominio.Cuenta;
-import dominio.Direccion;
+import Persistencia.iConexion;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,112 +21,97 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.Random;
-import dao.DireccionDAO;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  *
  * @author skevi
  */
-public class ClienteDAO {
+public class ClienteDAO implements iCliente {
 
-    private conexion conexionCliente;
-    private DireccionDAO direccionDAO;
-    private CuentaDAO cuentaDAO;
-    private SecureRandom secureRandom;
+    private iConexion conexionBD;
 
-    public ClienteDAO(DireccionDAO direccionDAO, CuentaDAO cuentaDAO) {
-        this.direccionDAO = direccionDAO;
-        this.cuentaDAO = cuentaDAO;
-        this.conexionCliente = new conexion();
-        this.secureRandom = new SecureRandom();
+    // Constructor que inicializa la conexión
+    public ClienteDAO(iConexion conexionBD) {
+        this.conexionBD = conexionBD;
     }
 
-    public boolean login(String usuario, String contrasena) {
-        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE nombre = ? AND contrasena = ?";
-        try (PreparedStatement statement = conexionCliente.crearConexion().prepareStatement(query)) {
-            statement.setString(1, usuario);
-            statement.setString(2, contrasena);
+    @Override
+    public ClienteDTO registrarUsuario(ClienteDTO cliente, DireccionDTO domicilio) throws PersistenciaExcepcion {
 
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    int count = resultSet.getInt("count");
-                    return count > 0;  // Si count es mayor a 0, el usuario y la contraseña son válidos
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo básico de excepciones (puedes mejorar esto según tus necesidades)
-        }
-        return false;  // Si hay alguna excepción, asumimos que el inicio de sesión falló
+        return null;
+
     }
 
-    public void guardarCliente(Cliente nuevoCliente, String contrasena, Direccion direccion) {
-        try (Connection conexion = conexionCliente.crearConexion()) {
-            // Realizar operaciones de persistencia con la conexión obtenida
-
-            // Validaciones
-            if (nuevoCliente == null || direccion == null) {
-                throw new IllegalArgumentException("El cliente y la dirección no pueden ser nulos");
-            }
-
-            // Guardar el cliente y la dirección
-            direccionDAO.guardarDireccion(direccion);
-            nuevoCliente.setIdDireccion(direccion.getId());
-            guardarClienteEnBD(nuevoCliente);
-            
-
-            Cuenta nuevaCuenta = cuentaDAO.crearCuentaAutomatica(nuevoCliente, contrasena);
-            cuentaDAO.guardarCuenta(nuevaCuenta);
-
-        } catch (SQLException e) {
-            e.printStackTrace(); // Manejo básico de excepciones (puedes mejorar esto según tus necesidades)
-        } finally {
-            conexionCliente.cerrarConexion();
-        }
+    @Override
+    public ClienteDTO login(String usr, String contrasena) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void guardarClienteEnBD(Cliente cliente) throws SQLException {
-
-        String query = "INSERT INTO Cliente (fechaN, edad, nombre, apellidoP, apellidoM, id_direccion) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = conexionCliente.crearConexion().prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            statement.setDate(1, new java.sql.Date(cliente.getFechaN().getTime()));
-            statement.setInt(2, cliente.getEdad());
-            statement.setString(3, cliente.getNombre());
-            statement.setString(4, cliente.getApellidoP());
-            statement.setString(5, cliente.getApellidoM());
-            statement.setInt(6, cliente.getIdDireccion());
-
-            // Ejecutar la inserción
-            int affectedRows = statement.executeUpdate();
-            if (affectedRows == 0) {
-                throw new SQLException("Fallo al insertar el cliente, ninguna fila afectada.");
-            }
-
-            // Obtener el ID generado para el cliente
-            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    cliente.setId(generatedKeys.getInt(1));
-                } else {
-                    throw new SQLException("Fallo al obtener el ID del cliente, ningún ID generado.");
-                }
-            }
-        }
+    @Override
+    public TransferenciaDTO transferencia(TransferenciaDTO transferencia) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    public int calcularEdad(Date fechaNacimiento) {
-        Calendar fechaNacimientoCal = Calendar.getInstance();
-        fechaNacimientoCal.setTime(fechaNacimiento);
 
-        Calendar hoy = Calendar.getInstance();
+    @Override
+    public List<String> consultarNumeroCuentas(int id) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-        int edad = hoy.get(Calendar.YEAR) - fechaNacimientoCal.get(Calendar.YEAR);
+    @Override
+    public List<CuentaDTO> consultarCuentas(int id) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-        // Ajustar la edad si aún no ha cumplido años en el año actual
-        if (hoy.get(Calendar.DAY_OF_YEAR) < fechaNacimientoCal.get(Calendar.DAY_OF_YEAR)) {
-            edad--;
-        }
+    @Override
+    public CuentaDTO consultarCuenta(int id) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-        return edad;
+    @Override
+    public List<TransferenciaDTO> consultarTransferencias(int id) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<RetiroDTO> consultarRetiros(int id) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void deposito(long numCuenta, double monto) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public double consultarSaldo(long numCuenta) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public CuentaDTO agregarCuenta(CuentaDTO cuenta) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean eliminarCuenta(long numCuenta) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public boolean retiroSinCuenta(RetiroDTO retiro) throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public long generarFolio() throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int generarContrasena() throws PersistenciaExcepcion {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

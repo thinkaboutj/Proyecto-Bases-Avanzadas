@@ -7,7 +7,7 @@ package dominio;
 import java.util.Date;
 import java.util.Objects;
 
-public class Cuenta implements iCuenta {
+public class Cuenta {
 
     private int id;
     private Date fecha;
@@ -15,9 +15,9 @@ public class Cuenta implements iCuenta {
     private double saldo;
     private String usuario;
     private String contrasena;
-    private iCliente cliente;
+    private Cliente cliente;
 
-    public Cuenta(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, iCliente cliente) {
+    public Cuenta(int id, Date fecha, int numC, double saldo, String usuario, String contrasena, Cliente cliente) {
         this.id = id;
         this.fecha = fecha;
         this.numC = numC;
@@ -27,73 +27,59 @@ public class Cuenta implements iCuenta {
         this.cliente = cliente;
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public Date getFecha() {
         return fecha;
     }
 
-    @Override
     public int getNumC() {
         return numC;
     }
 
-    @Override
     public double getSaldo() {
         return saldo;
     }
 
-    @Override
     public String getUsuario() {
         return usuario;
     }
 
-    @Override
     public String getContrasena() {
         return contrasena;
     }
 
-    @Override
-    public iCliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    @Override
     public void setId(int id) {
         this.id = id;
     }
 
-    @Override
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    @Override
     public void setNumC(int numC) {
         this.numC = numC;
     }
 
-    @Override
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    @Override
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    @Override
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
 
-    @Override
-    public void setCliente(iCliente cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

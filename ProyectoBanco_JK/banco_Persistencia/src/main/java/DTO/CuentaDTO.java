@@ -5,7 +5,6 @@
 package DTO;
 
 import dominio.Cliente;
-import dominio.iCliente;
 import java.util.Date;
 
 /**
@@ -95,7 +94,7 @@ public class CuentaDTO {
         this.contrasena = contrasena;
     }
 
-    public iCliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 

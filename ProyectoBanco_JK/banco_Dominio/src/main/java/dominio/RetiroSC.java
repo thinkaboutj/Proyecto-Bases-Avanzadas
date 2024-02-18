@@ -11,14 +11,13 @@ import java.util.Objects;
  *
  * @author Jesus Gabriel
  */
-public class RetiroSC extends Operacion {
+public class RetiroSC  {
     private String contrasena;
     private int folio;
     private String estado;
     private Cuenta cuenta;  // Agregamos la asociación con la clase Cuenta
 
     public RetiroSC(String contrasena, int folio, String estado, Cuenta cuenta, int id, Date fecha, double monto) {
-        super(id, fecha, monto);
         this.contrasena = contrasena;
         this.folio = folio;
         this.estado = estado;

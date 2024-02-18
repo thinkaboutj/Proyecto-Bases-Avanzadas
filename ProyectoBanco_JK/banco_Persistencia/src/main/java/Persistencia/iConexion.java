@@ -13,6 +13,8 @@ import java.sql.Connection;
 public interface iConexion {
     
     public Connection crearConexion();
+    
+    public void cerrarConexion();
 
     
 }
