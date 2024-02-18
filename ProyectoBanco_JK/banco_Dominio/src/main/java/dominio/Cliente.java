@@ -5,6 +5,7 @@
 package dominio;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -87,5 +88,50 @@ public class Cliente {
     public void setIdDireccion(int idDireccion) {
         this.idDireccion = idDireccion;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.edad != other.edad) {
+            return false;
+        }
+        if (this.idDireccion != other.idDireccion) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidoP, other.apellidoP)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellidoM, other.apellidoM)) {
+            return false;
+        }
+        return Objects.equals(this.fechaN, other.fechaN);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", fechaN=" + fechaN + ", edad=" + edad + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", idDireccion=" + idDireccion + '}';
+    }
  
+    
 }

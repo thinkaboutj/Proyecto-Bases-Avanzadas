@@ -20,6 +20,11 @@
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.33</version>
 </dependency>
-</dependencies>
+            <dependency>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>banco_Dominio</artifactId>
+                  <version>${project.version}</version>
+            </dependency>
+      </dependencies>
 
 </project>
