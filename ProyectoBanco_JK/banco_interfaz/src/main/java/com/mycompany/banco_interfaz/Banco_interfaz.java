@@ -4,6 +4,8 @@
 
 package com.mycompany.banco_interfaz;
 
+import interfazUsuario.LogIn;
+
 /**
  *
  * @author Jesus Gabriel
@@ -11,6 +13,10 @@ package com.mycompany.banco_interfaz;
 public class Banco_interfaz {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+         LogIn login = new LogIn();
+        
+        login.setVisible(true);
+
     }
 }

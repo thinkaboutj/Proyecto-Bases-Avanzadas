@@ -141,6 +141,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel3.setText("Cuenta");
 
         btnGenerarRetiro.setBackground(new java.awt.Color(246, 116, 82));
+        btnGenerarRetiro.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnGenerarRetiro.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerarRetiro.setText("Generar Retiro");
         btnGenerarRetiro.addActionListener(new java.awt.event.ActionListener() {
