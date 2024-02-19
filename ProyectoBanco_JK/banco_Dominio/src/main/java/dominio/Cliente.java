@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author Jesus Gabriel
  */
 public class Cliente {
-    
+
     private int id;
     private Date fechaN;
     private int edad;
@@ -38,6 +38,10 @@ public class Cliente {
     }
 
     public void setId(int id) {
+        // Validación de id 
+        if (id < 0) {
+            throw new IllegalArgumentException("El ID no puede ser un número negativo.");
+        }
         this.id = id;
     }
 
@@ -54,6 +58,10 @@ public class Cliente {
     }
 
     public void setEdad(int edad) {
+        // Validación de edad
+        if (edad < 0) {
+            throw new IllegalArgumentException("La edad no puede ser un número negativo.");
+        }
         this.edad = edad;
     }
 
@@ -62,6 +70,10 @@ public class Cliente {
     }
 
     public void setNombre(String nombre) {
+        // Validación de nombre
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+        }
         this.nombre = nombre;
     }
 
@@ -70,6 +82,10 @@ public class Cliente {
     }
 
     public void setApellidoP(String apellidoP) {
+        // Validación de apellidoP 
+        if (apellidoP == null || apellidoP.trim().isEmpty()) {
+            throw new IllegalArgumentException("El apellidoP no puede ser nulo o vacío.");
+        }
         this.apellidoP = apellidoP;
     }
 
@@ -78,6 +94,10 @@ public class Cliente {
     }
 
     public void setApellidoM(String apellidoM) {
+        // Validación de apellidoM 
+        if (apellidoM == null || apellidoM.trim().isEmpty()) {
+            throw new IllegalArgumentException("El apellidoM no puede ser nulo o vacío.");
+        }
         this.apellidoM = apellidoM;
     }
 
@@ -86,52 +106,11 @@ public class Cliente {
     }
 
     public void setIdDireccion(int idDireccion) {
+        // Validación de idDireccion 
+        if (idDireccion < 0) {
+            throw new IllegalArgumentException("El idDireccion no puede ser un número negativo.");
+        }
         this.idDireccion = idDireccion;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cliente other = (Cliente) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        if (this.edad != other.edad) {
-            return false;
-        }
-        if (this.idDireccion != other.idDireccion) {
-            return false;
-        }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellidoP, other.apellidoP)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellidoM, other.apellidoM)) {
-            return false;
-        }
-        return Objects.equals(this.fechaN, other.fechaN);
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "id=" + id + ", fechaN=" + fechaN + ", edad=" + edad + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", idDireccion=" + idDireccion + '}';
-    }
- 
-    
 }

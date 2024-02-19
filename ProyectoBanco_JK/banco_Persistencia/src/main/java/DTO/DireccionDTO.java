@@ -9,27 +9,31 @@ package DTO;
  * @author Jesus Gabriel
  */
 public class DireccionDTO {
-    
-     private int id;
+
+    private int id;
     private String calle;
     private int numero;
-    private int codigoP;
     private String colonia;
+    private int idCliente;
 
-    public DireccionDTO(int id, String calle, int numero, int codigoP, String colonia) {
+    // Constructor con ID
+    public DireccionDTO(int id, String calle, int numero, String colonia, int idCliente) {
         this.id = id;
         this.calle = calle;
         this.numero = numero;
-        this.codigoP = codigoP;
         this.colonia = colonia;
+        this.idCliente = idCliente;
     }
-    
-    public DireccionDTO(String calle, int numero, String colonia) {
+
+    // Constructor sin ID (para nuevas direcciones)
+    public DireccionDTO(String calle, int numero, String colonia, int idCliente) {
         this.calle = calle;
         this.numero = numero;
         this.colonia = colonia;
+        this.idCliente = idCliente;
     }
 
+    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -54,14 +58,6 @@ public class DireccionDTO {
         this.numero = numero;
     }
 
-    public int getCodigoP() {
-        return codigoP;
-    }
-
-    public void setCodigoP(int codigoP) {
-        this.codigoP = codigoP;
-    }
-
     public String getColonia() {
         return colonia;
     }
@@ -69,6 +65,12 @@ public class DireccionDTO {
     public void setColonia(String colonia) {
         this.colonia = colonia;
     }
-    
-    
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
 }

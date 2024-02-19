@@ -15,14 +15,12 @@ public class Direccion  {
     private int id;
     private String calle;
     private int numero;
-    private int codigoP;
     private String colonia;
 
     public Direccion(int id, String calle, int numero, int codigoP, String colonia) {
         this.id = id;
         this.calle = calle;
         this.numero = numero;
-        this.codigoP = codigoP;
         this.colonia = colonia;
     }
 
@@ -54,14 +52,6 @@ public class Direccion  {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    public int getCodigoP() {
-        return codigoP;
-    }
-
-    public void setCodigoP(int codigoP) {
-        this.codigoP = codigoP;
     }
 
     public String getColonia() {
@@ -96,9 +86,6 @@ public class Direccion  {
         if (this.numero != other.numero) {
             return false;
         }
-        if (this.codigoP != other.codigoP) {
-            return false;
-        }
         if (!Objects.equals(this.calle, other.calle)) {
             return false;
         }
@@ -107,9 +94,6 @@ public class Direccion  {
 
     @Override
     public String toString() {
-        return "Direccion{" + "id=" + id + ", calle=" + calle + ", numero=" + numero + ", codigoP=" + codigoP + ", colonia=" + colonia + '}';
+        return "Direccion{" + "id=" + id + ", calle=" + calle + ", numero=" + numero  + ", colonia=" + colonia + '}';
     }
-    
-    
-    
 }

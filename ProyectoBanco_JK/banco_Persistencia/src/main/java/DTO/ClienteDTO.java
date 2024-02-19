@@ -32,6 +32,18 @@ public class ClienteDTO {
     }
 
     // Getters y Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        // Validación de id 
+        if (id < 0) {
+            throw new IllegalArgumentException("El ID no puede ser un número negativo.");
+        }
+        this.id = id;
+    }
+
     public Date getFechaN() {
         return fechaN;
     }
@@ -45,6 +57,7 @@ public class ClienteDTO {
     }
 
     public void setEdad(int edad) {
+        // Validación de edad
         if (edad < 0) {
             throw new IllegalArgumentException("La edad no puede ser un número negativo.");
         }
