@@ -1,95 +1,64 @@
 -- EQUIPO: Jesus Medina Y Kevin Jared (╹ڡ╹ )
-CREATE DATABASE BANCO;
+-- CREAR LA BASE DE DATOS
+CREATE DATABASE IF NOT EXISTS BANCO;
 USE BANCO;
 
-CREATE TABLE Cliente (
+-- CREAR TABLA CLIENTE
+CREATE TABLE IF NOT EXISTS Cliente (
     id INT PRIMARY KEY AUTO_INCREMENT,
     fechaN DATE,
     edad INT,
     nombre VARCHAR(30),
     apellidoP VARCHAR(15),
-    apellidoM VARCHAR(15),
-    id_direccion INT
+    apellidoM VARCHAR(15)
 );
 
-CREATE TABLE Direccion (
+-- CREAR TABLA DIRECCION
+CREATE TABLE IF NOT EXISTS Direccion (
     id INT PRIMARY KEY AUTO_INCREMENT,
     calle VARCHAR(255),
     numero INT,
     codigoP INT,
-    colonia VARCHAR(30)
+    colonia VARCHAR(30),
+    id_cliente INT, -- Agregar la columna id_cliente
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id) -- Agregar la clave foránea a Cliente
 );
 
-CREATE TABLE Cuenta (
+-- CREAR TABLA CUENTA
+CREATE TABLE IF NOT EXISTS Cuenta (
     id INT PRIMARY KEY AUTO_INCREMENT,
     fecha DATE,
     numC INT,
     saldo DECIMAL(10, 2),
     usuario VARCHAR(20),
     contrasena VARCHAR(255), -- Usar VARCHAR para contraseñas
-    id_cliente INT
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id) -- Agregar la clave foránea a Cliente
 );
 
-CREATE TABLE Operacion (
+-- CREAR TABLA OPERACION
+CREATE TABLE IF NOT EXISTS Operacion (
     id INT PRIMARY KEY AUTO_INCREMENT,
     fecha DATE,
     monto DECIMAL(10, 2) -- Usar DECIMAL para montos
 );
 
-CREATE TABLE Transferencia (
+-- CREAR TABLA TRANSFERENCIA
+CREATE TABLE IF NOT EXISTS Transferencia (
     id INT PRIMARY KEY AUTO_INCREMENT,
     cuentaD INT,
-    id_operacion INT
+    id_operacion INT,
+    FOREIGN KEY (id_operacion) REFERENCES Operacion(id) -- Agregar la clave foránea a Operacion
 );
 
-CREATE TABLE RetiroSC (
+-- CREAR TABLA RETIROSC
+CREATE TABLE IF NOT EXISTS RetiroSC (
     id INT PRIMARY KEY AUTO_INCREMENT,
     contrasena VARCHAR(255), -- Usar VARCHAR para contraseñas
     folio INT,
     estado VARCHAR(20),
     id_cuenta INT,
-    id_operacion INT
+    id_operacion INT,
+    FOREIGN KEY (id_cuenta) REFERENCES Cuenta(id), -- Agregar la clave foránea a Cuenta
+    FOREIGN KEY (id_operacion) REFERENCES Operacion(id) -- Agregar la clave foránea a Operacion
 );
-
-ALTER TABLE Cliente
-ADD FOREIGN KEY (id_direccion) REFERENCES Direccion(id);
-
-ALTER TABLE Cuenta
-ADD FOREIGN KEY (id_cliente) REFERENCES Cliente(id);
-
-ALTER TABLE Transferencia
-ADD FOREIGN KEY (id_operacion) REFERENCES Operacion(id);
-
-ALTER TABLE RetiroSC
-ADD FOREIGN KEY (id_cuenta) REFERENCES Cuenta(id),
-ADD FOREIGN KEY (id_operacion) REFERENCES Operacion(id);
-
-DELIMITER //
-
-CREATE PROCEDURE CrearClienteConDireccion(
-    IN p_fechaN DATE,
-    IN p_edad INT,
-    IN p_nombre VARCHAR(30),
-    IN p_apellidoP VARCHAR(15),
-    IN p_apellidoM VARCHAR(15),
-    IN p_calle VARCHAR(255),
-    IN p_numero INT,
-    IN p_codigoP INT,
-    IN p_colonia VARCHAR(30)
-)
-BEGIN
-    DECLARE last_inserted_id INT;
-
-    -- Insertar la dirección y obtener el ID generado automáticamente
-    INSERT INTO Direccion (calle, numero, codigoP, colonia)
-    VALUES (p_calle, p_numero, p_codigoP, p_colonia);
-
-    SET last_inserted_id = LAST_INSERT_ID();
-
-    -- Insertar el cliente con el ID de dirección asociado
-    INSERT INTO Cliente (fechaN, edad, nombre, apellidoP, apellidoM, id_direccion)
-    VALUES (p_fechaN, p_edad, p_nombre, p_apellidoP, p_apellidoM, last_inserted_id);
-END //
-
-DELIMITER ;
-	
