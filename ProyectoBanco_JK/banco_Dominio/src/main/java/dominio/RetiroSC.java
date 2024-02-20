@@ -8,54 +8,114 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
+ * Clase que representa un retiro en un sistema de caja.
+ *
+ * Esta clase proporciona una estructura para almacenar información relacionada
+ * con un retiro de efectivo, incluyendo la contraseña, folio, estado y la
+ * cuenta asociada.
  *
  * @author Jesus Gabriel
  */
-public class RetiroSC  {
+public class RetiroSC {
+
+    // Propiedades de la clase
     private String contrasena;
     private int folio;
     private String estado;
     private Cuenta cuenta;  // Agregamos la asociación con la clase Cuenta
 
-    public RetiroSC(String contrasena, int folio, String estado, Cuenta cuenta, int id, Date fecha, double monto) {
+    /**
+     * Constructor de la clase RetiroSC.
+     *
+     * @param contrasena La contraseña asociada al retiro.
+     * @param folio El número de folio del retiro.
+     * @param estado El estado del retiro.
+     * @param cuenta La cuenta asociada al retiro.
+     */
+    public RetiroSC(String contrasena, int folio, String estado, Cuenta cuenta) {
         this.contrasena = contrasena;
         this.folio = folio;
         this.estado = estado;
         this.cuenta = cuenta;
     }
 
+    /**
+     * Obtiene la contraseña asociada al retiro.
+     *
+     * @return La contraseña asociada al retiro.
+     */
     public String getContrasena() {
         return contrasena;
     }
 
+    /**
+     * Establece la contraseña asociada al retiro.
+     *
+     * @param contrasena La nueva contraseña asociada al retiro.
+     */
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
 
+    /**
+     * Obtiene el número de folio del retiro.
+     *
+     * @return El número de folio del retiro.
+     */
     public int getFolio() {
         return folio;
     }
 
+    /**
+     * Establece el número de folio del retiro.
+     *
+     * @param folio El nuevo número de folio del retiro.
+     */
     public void setFolio(int folio) {
         this.folio = folio;
     }
 
+    /**
+     * Obtiene el estado del retiro.
+     *
+     * @return El estado del retiro.
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * Establece el estado del retiro.
+     *
+     * @param estado El nuevo estado del retiro.
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
+    /**
+     * Obtiene la cuenta asociada al retiro.
+     *
+     * @return La cuenta asociada al retiro.
+     */
     public Cuenta getCuenta() {
         return cuenta;
     }
 
+    /**
+     * Establece la cuenta asociada al retiro.
+     *
+     * @param cuenta La nueva cuenta asociada al retiro.
+     */
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
     }
 
+    /**
+     * Genera un código hash único para el retiro.
+     *
+     * @return El código hash generado.
+     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -66,6 +126,12 @@ public class RetiroSC  {
         return hash;
     }
 
+    /**
+     * Compara el retiro actual con otro objeto para determinar si son iguales.
+     *
+     * @param obj El objeto con el que se va a comparar.
+     * @return true si son iguales, false de lo contrario.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -89,7 +155,5 @@ public class RetiroSC  {
         }
         return Objects.equals(this.cuenta, other.cuenta);
     }
-    
-    
 
 }
