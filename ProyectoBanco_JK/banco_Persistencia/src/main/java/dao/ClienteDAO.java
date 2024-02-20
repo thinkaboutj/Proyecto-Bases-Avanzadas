@@ -20,18 +20,36 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Clase que implementa la interfaz iCliente para la manipulación de objetos Cliente en la base de datos.
+ * 
+ * Utiliza procedimientos almacenados para agregar un nuevo cliente junto con su información de dirección asociada.
+ * 
  * @author skevi
  */
 public class ClienteDAO implements iCliente {
 
+    /**
+     * Interfaz que proporciona métodos para gestionar la conexión a la base de datos.
+     */
     private iConexion conexionBD;
 
-    // Constructor que inicializa la conexión
+    /**
+     * Constructor que inicializa la conexión a la base de datos.
+     * 
+     * @param conexionBD Objeto que implementa la interfaz iConexion para la gestión de la conexión.
+     */
     public ClienteDAO(iConexion conexionBD) {
         this.conexionBD = conexionBD;
     }
 
+    /**
+     * Agrega un nuevo cliente a la base de datos junto con su información de dirección.
+     * 
+     * @param cliente El objeto ClienteDTO que contiene la información del cliente a agregar.
+     * @param dire    El objeto DireccionDTO que contiene la información de la dirección asociada al cliente.
+     * @return        El objeto Cliente agregado a la base de datos.
+     * @throws PersistenciaExcepcion Si ocurre un error durante la operación de persistencia.
+     */
     @Override
     public Cliente AgregarCliente(ClienteDTO cliente, DireccionDTO dire) throws PersistenciaExcepcion {
         try {
@@ -65,7 +83,7 @@ public class ClienteDAO implements iCliente {
                 idCliente = resultado.getInt(1);
             }
 
-        // AQUI FALA QUE REGRESE UN CLIENTE 
+        // AQUÍ FALTA QUE REGRESE UN CLIENTE 
         } catch (SQLException e) {
             // Manejar las excepciones adecuadamente
             e.printStackTrace();
@@ -74,3 +92,4 @@ public class ClienteDAO implements iCliente {
        
     }
 }
+

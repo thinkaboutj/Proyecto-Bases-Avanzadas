@@ -8,7 +8,6 @@ import DTO.ClienteDTO;
 import DTO.DireccionDTO;
 import Exception.PersistenciaExcepcion;
 import dao.ClienteDAO;
-import dao.DireccionDAO;
 import dominio.Cliente;
 import dominio.Direccion;
 
